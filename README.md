@@ -13,21 +13,21 @@
 
 ---
 
-## 📖 Descripción
+## Descripción
 
 **Ritual** es una app de seguimiento de hábitos con una interfaz oscura y cuidada, diseñada a partir de un archivo de Figma. Permite crear hábitos, programarlos por días de la semana, marcar su cumplimiento diario y visualizar el progreso a lo largo del tiempo — todo sincronizado en la nube con Supabase.
 
-### ✨ Características
+### Características
 
-- **📅 Vista «Hoy»** — semana navegable, hábitos del día seleccionado, progreso diario y barras de horario por hora.
-- **📈 Vista «Progreso»** — resumen de estadísticas (racha, total, cumplimiento) y gestión rápida de hábitos.
-- **🗂 Vista «Colección»** — todos tus hábitos con su categoría, días programados y estado.
-- **⚙️ Vista «Ajustes»** — cuenta, objetivo diario, notificaciones, apariencia, idioma y sincronización.
-- **➕ CRUD completo** — crear, editar y eliminar hábitos desde un modal con validación.
-- **🎨 Diseño propio** — tab bar personalizada, fondos animados con *blooms* ambientales, tipografía Inter y sistema de tokens de color.
-- **☁️ Sync en la nube** — todo persiste en la tabla `habits` de Supabase.
+- ** Vista «Hoy»** — semana navegable, hábitos del día seleccionado, progreso diario y barras de horario por hora.
+- ** Vista «Progreso»** — resumen de estadísticas (racha, total, cumplimiento) y gestión rápida de hábitos.
+- ** Vista «Colección»** — todos tus hábitos con su categoría, días programados y estado.
+- ** Vista «Ajustes»** — cuenta, objetivo diario, notificaciones, apariencia, idioma y sincronización.
+- ** CRUD completo** — crear, editar y eliminar hábitos desde un modal con validación.
+- ** Diseño propio** — tab bar personalizada, fondos animados con *blooms* ambientales, tipografía Inter y sistema de tokens de color.
+- ** Sync en la nube** — todo persiste en la tabla `habits` de Supabase.
 
-## 🛠 Stack tecnológico
+##  Stack tecnológico
 
 | Capa | Tecnología |
 | --- | --- |
@@ -39,7 +39,7 @@
 | Lenguaje | JavaScript con tipos via JSDoc · TypeScript solo para config |
 | Lint | ESLint (`eslint-config-expo`) |
 
-## 🚀 Arranque rápido
+## Arranque rápido
 
 ```bash
 # 1. Instalar dependencias
@@ -63,9 +63,9 @@ EXPO_PUBLIC_SUPABASE_URL=https://<tu-proyecto>.supabase.co
 EXPO_PUBLIC_SUPABASE_KEY=<tu-publishable-key>
 ```
 
-> 🔑 Usa la **publishable/anon key**, nunca la `service_role`. Con RLS habilitado es suficiente y seguro para el cliente.
+>  Usa la **publishable/anon key**, nunca la `service_role`. Con RLS habilitado es suficiente y seguro para el cliente.
 
-## 📦 Comandos
+## Comandos
 
 | Comando | Qué hace |
 | --- | --- |
@@ -78,7 +78,7 @@ EXPO_PUBLIC_SUPABASE_KEY=<tu-publishable-key>
 | `npx expo export --platform android` | Bundle de producción |
 | `npx expo-doctor` | Diagnóstico de dependencias/config |
 
-## 🏗 Arquitectura
+## Arquitectura
 
 ```
 index.js  →  App.js                     entrada + navegación + fuentes
@@ -117,7 +117,7 @@ src/
 - **Fuentes:** se importan los pesos de Inter por subpath individual para no cargar los 18 variantes (~6 MB).
 - **React Compiler** está habilitado en `app.json` (`experiments.reactCompiler`).
 
-## 🗄 Esquema `habits`
+## Esquema `habits`
 
 ```sql
 id             uuid        default gen_random_uuid()
@@ -131,13 +131,12 @@ is_completed   boolean     default false
 created_at     timestamptz default now()
 ```
 
-## ⚠️ Notas
+## Notas
 
 - `EXPO_ROUTER_DISABLE_RN_NAVIGATION_CHECK=1` en `.env` es necesario porque Expo Router sigue instalado como dependencia transitiva de `@expo/cli` y bloquearía los imports de `@react-navigation/*`.
 - `expo-env.d.ts` es un archivo **generado** (está en `.gitignore`). Si `npx tsc --noEmit` falla con errores de imports de `.css`, regeneralo con `npx expo start` o vuelve a crearlo con `/// <reference types="expo/types" />`.
 - `ios/` y `android/` son generados por Continuous Native Generation — nunca se editan a mano; la config nativa vive en `app.json`.
 - Tras agregar una librería con código nativo, hace falta un development build (`npx expo run:ios|android`), no Expo Go.
 
-## 📄 Licencia
 
 [MIT](LICENSE)
